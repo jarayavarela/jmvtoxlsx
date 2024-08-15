@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+jsontoxlsx/_version.py
+jsontoxlsx.egg-info/PKG-INFO
+jsontoxlsx.egg-info/SOURCES.txt
+jsontoxlsx.egg-info/dependency_links.txt
+jsontoxlsx.egg-info/entry_points.txt
+jsontoxlsx.egg-info/requires.txt
+jsontoxlsx.egg-info/top_level.txt
