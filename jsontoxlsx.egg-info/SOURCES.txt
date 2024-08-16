@@ -1,6 +1,9 @@
+.editorconfig
+.gitignore
 LICENSE
 README.md
 pyproject.toml
+requirements.txt
 jsontoxlsx/_version.py
 jsontoxlsx.egg-info/PKG-INFO
 jsontoxlsx.egg-info/SOURCES.txt
@@ -8,3 +11,5 @@ jsontoxlsx.egg-info/dependency_links.txt
 jsontoxlsx.egg-info/entry_points.txt
 jsontoxlsx.egg-info/requires.txt
 jsontoxlsx.egg-info/top_level.txt
+jsontoxlsx/src/main.py
+jsontoxlsx/src/__pycache__/main.cpython-311.pyc
