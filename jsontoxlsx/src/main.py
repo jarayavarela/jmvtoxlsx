@@ -1,6 +1,6 @@
-""" Rescate de informacion de archivo en formato
-    Semantic Location History ordenado en JSON -> Entrega un xlsx con la informacion
-    considerada importante para el analisis de movilidad"""
+"""Rescate de informacion de archivo en formato
+Semantic Location History ordenado en JSON -> Entrega un xlsx con la informacion
+considerada importante para el analisis de movilidad"""
 
 import json
 import os
@@ -41,10 +41,9 @@ def main():
                     pla_vis.append(pla_vis_for)
                 else:
                     print("Verificar ERROR")
-        n_fila = ingreso_datos_activity_segment(
-            hoja_activity_segment, act_seg, arch, n_fila, nuevo_diccionario
-        )
+        n_fila = ingreso_datos_activity_segment(hoja_activity_segment, act_seg, arch, n_fila, nuevo_diccionario)
     workbook.save(f"{directorio_principal}\\salida\\resumen.xlsx")
+
 
 def ingreso_datos_activity_segment(
     hoja,
@@ -118,9 +117,9 @@ def construccion_lista_actividades(
     """Funcion para construir una lista con una actividad
     y todos sus detalles importantes"""
     pref_act_seg = dicc["timelineObjects"][posicion]["activitySegment"]
-    delta = datetime.fromisoformat(
-        pref_act_seg["duration"]["endTimestamp"]
-    ) - datetime.fromisoformat(pref_act_seg["duration"]["startTimestamp"])
+    delta = datetime.fromisoformat(pref_act_seg["duration"]["endTimestamp"]) - datetime.fromisoformat(
+        pref_act_seg["duration"]["startTimestamp"]
+    )
     duration_seg = round(delta.total_seconds(), 0)
     if "waypointPath" in pref_act_seg:
         if len(pref_act_seg["waypointPath"]["waypoints"]) != 0:
@@ -135,9 +134,7 @@ def construccion_lista_actividades(
             way_point = 0
 
         way_dist = (
-            pref_act_seg["waypointPath"]["distanceMeters"]
-            if "distanceMeters" in pref_act_seg["waypointPath"]
-            else 0
+            pref_act_seg["waypointPath"]["distanceMeters"] if "distanceMeters" in pref_act_seg["waypointPath"] else 0
         )
     elif "transitPath" in pref_act_seg:
         if len(pref_act_seg["transitPath"]["transitStops"]) != 0:
@@ -173,36 +170,12 @@ def construccion_lista_actividades(
         way_point = 0
         way_dist = 0
 
-    latini = (
-        pref_act_seg["startLocation"]["latitudeE7"]
-        if "latitudeE7" in pref_act_seg["startLocation"]
-        else 0
-    )
-    lonini = (
-        pref_act_seg["startLocation"]["longitudeE7"]
-        if "longitudeE7" in pref_act_seg["startLocation"]
-        else 0
-    )
-    latfin = (
-        pref_act_seg["endLocation"]["latitudeE7"]
-        if "latitudeE7" in pref_act_seg["endLocation"]
-        else 0
-    )
-    lonfin = (
-        pref_act_seg["endLocation"]["longitudeE7"]
-        if "longitudeE7" in pref_act_seg["endLocation"]
-        else 0
-    )
-    timeini = (
-        pref_act_seg["duration"]["startTimestamp"]
-        if "startTimestamp" in pref_act_seg["duration"]
-        else 0
-    )
-    timefin = (
-        pref_act_seg["duration"]["endTimestamp"]
-        if "endTimestamp" in pref_act_seg["duration"]
-        else 0
-    )
+    latini = pref_act_seg["startLocation"]["latitudeE7"] if "latitudeE7" in pref_act_seg["startLocation"] else 0
+    lonini = pref_act_seg["startLocation"]["longitudeE7"] if "longitudeE7" in pref_act_seg["startLocation"] else 0
+    latfin = pref_act_seg["endLocation"]["latitudeE7"] if "latitudeE7" in pref_act_seg["endLocation"] else 0
+    lonfin = pref_act_seg["endLocation"]["longitudeE7"] if "longitudeE7" in pref_act_seg["endLocation"] else 0
+    timeini = pref_act_seg["duration"]["startTimestamp"] if "startTimestamp" in pref_act_seg["duration"] else 0
+    timefin = pref_act_seg["duration"]["endTimestamp"] if "endTimestamp" in pref_act_seg["duration"] else 0
     dist = round(pref_act_seg["distance"], 0) if "distance" in pref_act_seg else 0
     modo = pref_act_seg["activityType"] if "activityType" in pref_act_seg else 0
     confianza = pref_act_seg["confidence"] if "confidence" in pref_act_seg else 0
