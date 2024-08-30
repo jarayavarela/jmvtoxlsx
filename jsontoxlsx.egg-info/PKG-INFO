@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: jsontoxlsx
-Version: 1.0.0.post2
+Version: 1.0.1.post0
 Summary: Aplicación para convertir información relevante para movilidad desde JSON de GLH a un archivo xlsx
 Author-email: Jorge Araya <jaravar@cam.upv.es>
 License: Acuerdo de Licencia de Software para jsontoxlsx

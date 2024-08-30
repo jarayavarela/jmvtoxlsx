@@ -12,4 +12,3 @@ jsontoxlsx.egg-info/entry_points.txt
 jsontoxlsx.egg-info/requires.txt
 jsontoxlsx.egg-info/top_level.txt
 jsontoxlsx/src/main.py
-jsontoxlsx/src/__pycache__/main.cpython-311.pyc
