@@ -4,9 +4,11 @@ considerada importante para el analisis de movilidad"""
 
 import json
 import os
+import sys
+import tkinter as tk
 from datetime import datetime
 from pathlib import Path
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 from typing import Any
 
 from openpyxl import Workbook
@@ -16,6 +18,8 @@ from openpyxl.utils import get_column_letter
 
 def main():
     "Proceso principal"
+    root = tk.Tk()
+    root.withdraw()
     directorio_principal = Path(filedialog.askdirectory())
     lista_con_json = listado_de_archivos(directorio_principal)
     if not os.path.exists(f"{directorio_principal}\\salida"):
@@ -23,26 +27,39 @@ def main():
     hoja_activity_segment, workbook = crea_excel()
     n_fila = 2
     nuevo_diccionario = []
-    for archivo_json in lista_con_json:
-        act_seg = []
-        pla_vis = []
-        arch = os.path.splitext(os.path.basename(archivo_json))[0]
-        with open(archivo_json, "r", encoding="utf-8") as archivo:
-            diccionario_json = json.load(archivo)
-            for i in range(len(diccionario_json["timelineObjects"])):
-                if "activitySegment" in diccionario_json["timelineObjects"][i]:
-                    act_seg.append(construccion_lista_actividades(diccionario_json, i))
-                elif "placeVisit" in diccionario_json["timelineObjects"][i]:
-                    pref_pla_vis = diccionario_json["timelineObjects"][i]["placeVisit"]
-                    pla_vis_for = [
-                        pref_pla_vis["location"]["latitudeE7"],
-                        pref_pla_vis["location"]["longitudeE7"],
-                    ]
-                    pla_vis.append(pla_vis_for)
-                else:
-                    print("Verificar ERROR")
-        n_fila = ingreso_datos_activity_segment(hoja_activity_segment, act_seg, arch, n_fila, nuevo_diccionario)
-    workbook.save(f"{directorio_principal}\\salida\\resumen.xlsx")
+    if lista_con_json:
+        for archivo_json in lista_con_json:
+            act_seg = []
+            pla_vis = []
+            arch = os.path.splitext(os.path.basename(archivo_json))[0]
+            with open(archivo_json, "r", encoding="utf-8") as archivo:
+                diccionario_json = json.load(archivo)
+                if "timelineObjects" not in diccionario_json:
+                    messagebox.showwarning(
+                        "Advertencia",
+                        f"El archivo '{arch}.json' no contiene las claves necesarias ('timelineObjects') para el "
+                        "procesamiento de rutas y viajes. Por favor, revise el archivo y asegúrese de que los "
+                        "datos estén completos.",
+                    )
+                    root.destroy()
+                    sys.exit()
+                for i in range(len(diccionario_json["timelineObjects"])):
+                    if "activitySegment" in diccionario_json["timelineObjects"][i]:
+                        act_seg.append(construccion_lista_actividades(diccionario_json, i))
+                    elif "placeVisit" in diccionario_json["timelineObjects"][i]:
+                        pref_pla_vis = diccionario_json["timelineObjects"][i]["placeVisit"]
+                        pla_vis_for = [
+                            pref_pla_vis["location"]["latitudeE7"],
+                            pref_pla_vis["location"]["longitudeE7"],
+                        ]
+                        pla_vis.append(pla_vis_for)
+                    else:
+                        print("Verificar ERROR")
+                n_fila = ingreso_datos_activity_segment(hoja_activity_segment, act_seg, arch, n_fila, nuevo_diccionario)
+        workbook.save(f"{directorio_principal}\\salida\\resumen.xlsx")
+    else:
+        messagebox.showwarning("Advertencia", "No existen archivos JSON en la carpeta seleccionada")
+    root.destroy()
 
 
 def ingreso_datos_activity_segment(
