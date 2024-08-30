@@ -22,8 +22,6 @@ def main():
     root.withdraw()
     directorio_principal = Path(filedialog.askdirectory())
     lista_con_json = listado_de_archivos(directorio_principal)
-    if not os.path.exists(f"{directorio_principal}\\salida"):
-        os.mkdir(f"{directorio_principal}\\salida")
     hoja_activity_segment, workbook = crea_excel()
     n_fila = 2
     nuevo_diccionario = []
@@ -54,9 +52,21 @@ def main():
                         ]
                         pla_vis.append(pla_vis_for)
                     else:
-                        print("Verificar ERROR")
+                        messagebox.showwarning(
+                            "Advertencia",
+                            f"El archivo '{arch}.json' presenta inconsistencias,"
+                            "lo que podría indicar una alteración manual. "
+                            "Por favor, verifique el archivo para asegurar que los datos sean correctos y completos.",
+                        )
+                        root.destroy()
+                        sys.exit()
                 n_fila = ingreso_datos_activity_segment(hoja_activity_segment, act_seg, arch, n_fila, nuevo_diccionario)
+        if not os.path.exists(f"{directorio_principal}\\salida"):
+            os.mkdir(f"{directorio_principal}\\salida")
         workbook.save(f"{directorio_principal}\\salida\\resumen.xlsx")
+        messagebox.showinfo(
+            "Proceso Completado", "El proceso ha concluido con éxito. Todos los datos se han procesado correctamente."
+        )
     else:
         messagebox.showwarning("Advertencia", "No existen archivos JSON en la carpeta seleccionada")
     root.destroy()
