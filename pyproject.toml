@@ -30,10 +30,10 @@ authors = [
     {name = "Jorge Araya", email = "jaravar@cam.upv.es"}
 ]
 license = {file = "LICENSE"}
-urls = {source = "https://github.com/jarayavarela/datafusion"}
+urls = {source = "https://github.com/jarayavarela/jsontoxlsx"}
 
 # Generar requiremens.txt con: python -m piptools compile -o requirements.txt pyproject.toml
-dependencies = ["pillow==10.3.0"]
+dependencies = ["pillow==10.3.0","openpyxl==3.1.5"]
 
 # Generar dev-requiremens.txt con: python -m piptools compile --extra dev -o dev-requirements.txt pyproject.toml
 [project.optional-dependencies]

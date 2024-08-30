@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: jsontoxlsx
-Version: 1.0.0.post0
+Version: 1.0.0.post2
 Summary: Aplicación para convertir información relevante para movilidad desde JSON de GLH a un archivo xlsx
 Author-email: Jorge Araya <jaravar@cam.upv.es>
 License: Acuerdo de Licencia de Software para jsontoxlsx
@@ -34,11 +34,12 @@ License: Acuerdo de Licencia de Software para jsontoxlsx
         Universitat Politècnica de València
         Correo electrónico: <jaravar@cam.upv.es>
         
-Project-URL: source, https://github.com/jarayavarela/datafusion
+Project-URL: source, https://github.com/jarayavarela/jsontoxlsx
 Keywords: python,mobility data,urban mobility,json data structure,location tracking
 Requires-Python: >=3.11
 License-File: LICENSE
 Requires-Dist: pillow==10.3.0
+Requires-Dist: openpyxl==3.1.5
 Provides-Extra: dev
 Requires-Dist: pytest==8.2.2; extra == "dev"
 Requires-Dist: ruff==0.4.10; extra == "dev"
