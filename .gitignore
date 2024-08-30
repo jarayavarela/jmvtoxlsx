@@ -1,7 +1,6 @@
 __pycache__/
 .venv/
 data/
-dist/
 *.json
 *.xlsx
 
