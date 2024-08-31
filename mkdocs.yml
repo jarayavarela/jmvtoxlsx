@@ -1,0 +1,62 @@
+site_name: "DOCUMENTACION JSONTOXLSX"
+theme:
+  name: material
+
+  # Configuración de esquemas de color
+  palette:
+    - scheme: default
+      primary: "white"
+      accent: "deep orange"
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar al modo oscuro
+
+    - scheme: slate
+      primary: "white"
+      accent: "deep orange"
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar al modo claro
+
+  # Configuración del idioma
+  language: es
+
+  # Configuración del logo y favicon
+  logo: imagenes/jsontoxlsx.png
+  favicon: imagenes/jsontoxlsx.png
+
+  # Características del tema
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.top
+    - content.code.copy
+    - navigation.footer
+
+  # Iconos personalizados
+  icon:
+    annotation: material/arrow-right-circle
+
+# Configuración adicional para enlaces sociales en el pie de página
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/jorge-araya-varela-275570266/
+    - icon: fontawesome/brands/github
+      link: https://github.com/jarayavarela
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:jaravar@cam.upv.es
+
+# Extensiones de Markdown
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+
+nav:
+  - Inicio: index.md
+  - Instalación: instalacion.md
+  - Uso : instrucciones.md

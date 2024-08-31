@@ -33,7 +33,7 @@ license = {file = "LICENSE"}
 urls = {source = "https://github.com/jarayavarela/jsontoxlsx"}
 
 # Generar requiremens.txt con: python -m piptools compile -o requirements.txt pyproject.toml
-dependencies = ["pillow==10.3.0","openpyxl==3.1.5"]
+dependencies = ["pillow==10.3.0","openpyxl==3.1.5","mkdocs==1.6.1","mkdocs-material==9.5.33"]
 
 # Generar dev-requiremens.txt con: python -m piptools compile --extra dev -o dev-requirements.txt pyproject.toml
 [project.optional-dependencies]
