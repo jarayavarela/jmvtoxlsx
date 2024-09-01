@@ -1,4 +1,4 @@
-# Instalación de jsontoxlsx
+# Instalación
 
 Sigue estos pasos para instalar y configurar correctamente el software **jsontoxlsx** en tu computadora.
 La instalación se divide en dos partes principales: la instalación de Python y la instalación del software.
