@@ -13,7 +13,6 @@ from typing import Any
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
-from openpyxl.utils import get_column_letter
 
 
 def main():
@@ -228,9 +227,28 @@ def crea_excel():
     workbook = Workbook()
     hoja_act_seg = workbook.active
     hoja_act_seg.title = "activitySegment"
-    for col in range(1, 16):  # Definir ancho para las primeras 15 columnas
-        col_letter = get_column_letter(col)
-        hoja_act_seg.column_dimensions[col_letter].width = 20
+
+    columna_anchos = {
+        "A": 9,
+        "B": 10,
+        "C": 11,
+        "D": 11,
+        "E": 9,
+        "F": 11,
+        "G": 10,
+        "H": 11,
+        "I": 10,
+        "J": 13,
+        "K": 18,
+        "L": 25,
+        "M": 11,
+        "N": 19,
+        "O": 17,
+    }
+
+    for col, width in columna_anchos.items():
+        hoja_act_seg.column_dimensions[col].width = width
+
     hoja_act_seg["A1"] = "ID_VIAJE"
     hoja_act_seg["B1"] = "N_PUNTO"
     hoja_act_seg["C1"] = "LATITUD"
