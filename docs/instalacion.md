@@ -40,13 +40,13 @@ Una vez que Python esté instalado, puedes proceder con la instalación de **jso
 - Ejecuta el siguiente comando para instalar el software:
 
 ````
-pip install nombre_del_archivo.whl
+python -m pip install nombre_del_archivo.whl
 ````
 
-Asegúrate de reemplazar `nombre_del_archivo.whl` con el nombre real del archivo que descargaste. Por ejemplo, si el archivo que descargaste se llama `jsontoxlsx-1.0.0-py3-none-any.whl`, entonces el comando sería:
+Asegúrate de reemplazar `nombre_del_archivo.whl` con el nombre real del archivo que descargaste. Por ejemplo, si el archivo que descargaste se llama `jsontoxlsx-1.0.2-py3-none-any.whl`, entonces el comando sería:
 
 ````
-pip install jsontoxlsx-1.0.1.post0-py3-none-any.whl
+python -m pip install jsontoxlsx-1.0.2.post0-py3-none-any.whl
 ````
 
 ### Paso 3: Verificar la instalación
@@ -54,7 +54,7 @@ pip install jsontoxlsx-1.0.1.post0-py3-none-any.whl
 Una vez que el proceso de instalación se complete, verifica que **jsontoxlsx** esté instalado correctamente ejecutando:
 
 ````
-jsontoxlsx --version
+python -m pip show jsontoxlsx
 ````
 
 Deberías ver la versión del software como salida si la instalación fue exitosa.
