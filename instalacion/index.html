@@ -588,14 +588,14 @@ La instalación se divide en dos partes principales: la instalación de Python y
 <li>Abre una terminal en la ubicación donde descargaste el archivo <code>.whl</code>.</li>
 <li>Ejecuta el siguiente comando para instalar el software:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>pip install nombre_del_archivo.whl
+<div class="highlight"><pre><span></span><code>python -m pip install nombre_del_archivo.whl
 </code></pre></div>
-<p>Asegúrate de reemplazar <code>nombre_del_archivo.whl</code> con el nombre real del archivo que descargaste. Por ejemplo, si el archivo que descargaste se llama <code>jsontoxlsx-1.0.0-py3-none-any.whl</code>, entonces el comando sería:</p>
-<div class="highlight"><pre><span></span><code>pip install jsontoxlsx-1.0.1.post0-py3-none-any.whl
+<p>Asegúrate de reemplazar <code>nombre_del_archivo.whl</code> con el nombre real del archivo que descargaste. Por ejemplo, si el archivo que descargaste se llama <code>jsontoxlsx-1.0.2-py3-none-any.whl</code>, entonces el comando sería:</p>
+<div class="highlight"><pre><span></span><code>python -m pip install jsontoxlsx-1.0.2.post0-py3-none-any.whl
 </code></pre></div>
 <h3 id="paso-3-verificar-la-instalacion_1">Paso 3: Verificar la instalación</h3>
 <p>Una vez que el proceso de instalación se complete, verifica que <strong>jsontoxlsx</strong> esté instalado correctamente ejecutando:</p>
-<div class="highlight"><pre><span></span><code>jsontoxlsx --version
+<div class="highlight"><pre><span></span><code>python -m pip show jsontoxlsx
 </code></pre></div>
 <p>Deberías ver la versión del software como salida si la instalación fue exitosa.</p>
 
