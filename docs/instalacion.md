@@ -33,6 +33,7 @@ Una vez que Python esté instalado, puedes proceder con la instalación de **jso
 ### Paso 1: Descargar el archivo `.whl`
 
 - Obtén el archivo `.whl` del software **jsontoxlsx** desde el repositorio oficial o el enlace proporcionado por el equipo de desarrollo.
+- Dentro del repositorio en la carpeta [dist](https://github.com/jarayavarela/jsontoxlsx/tree/main/dist) se encuentran las versiones activas del software, se recomienda utilizar la más actual.
 
 ### Paso 2: Instalar jsontoxlsx usando pip
 
